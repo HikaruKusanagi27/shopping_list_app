@@ -1,20 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:shopping_list_app/shopping_list_screen.dart';
 
 void main() {
-  runApp(const MainApp());
+  runApp(const ShoppingListApp());
 }
 
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
+class ShoppingListApp extends StatelessWidget {
+  const ShoppingListApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
-      ),
+      home: ShoppingListScreen(),
     );
   }
 }
