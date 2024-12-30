@@ -9,7 +9,8 @@ class ShoppingListScreen extends StatefulWidget {
 
 class _ShoppingListScreenState extends State<ShoppingListScreen> {
   List<String> shoppingList = ['Apple', 'Banana', 'Carrot'];
-  final TextEditingController _controller = TextEditingController();
+
+  final TextEditingController _controller = TextEditingController(); // 初期値を設定
 
   void _addItem() {
     if (_controller.text.isNotEmpty) {
@@ -29,20 +30,20 @@ class _ShoppingListScreenState extends State<ShoppingListScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Shopping List')),
+      appBar: AppBar(title: const Text('Shopping List')),
       body: Column(
         children: [
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: TextField(
               controller: _controller,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: 'Add an item',
                 border: OutlineInputBorder(),
               ),
             ),
           ),
-          ElevatedButton(onPressed: _addItem, child: Text('Add')),
+          ElevatedButton(onPressed: _addItem, child: const Text('Add')),
           Expanded(
             child: ListView.builder(
               itemCount: shoppingList.length,
@@ -50,7 +51,7 @@ class _ShoppingListScreenState extends State<ShoppingListScreen> {
                 return ListTile(
                   title: Text(shoppingList[index]),
                   trailing: IconButton(
-                    icon: Icon(Icons.delete),
+                    icon: const Icon(Icons.delete),
                     onPressed: () => _removeItem(index),
                   ),
                 );
