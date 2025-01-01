@@ -9,15 +9,9 @@ class ShoppingListScreen extends StatefulWidget {
 
 class _ShoppingListScreenState extends State<ShoppingListScreen> {
   List<String> shoppingList = [];
-//1. **`TextEditingController`クラス**:
-    - `TextEditingController`は、Dartで用意されているクラスで、テキスト入力を管理する機能を持つ設計図（クラス）です。
-2. **`TextEditingController();`（インスタンス化）**:
-    - この部分で、`TextEditingController`クラスを元に、新しいインスタンス（オブジェクト）が作られます。
-    - インスタンス化とは、「設計図（クラス）」を基に「実物（オブジェクト）」を作成することを指します。
-3. **変数`_controller`**:
-    - この変数は、新しく作成されたインスタンスを参照（格納）します。
-    - `_controller`を使うことで、そのインスタンスにアクセスし、操作や値の取得ができます。
+
   final TextEditingController _controller = TextEditingController(); // 初期値を設定
+// 1. TextEditingControllerは、Dartで用意されているクラスで、テキスト入力を管理する機能を持つ設計図（クラス）です。
 
   void _addItem() {
     if (_controller.text.isNotEmpty) {
