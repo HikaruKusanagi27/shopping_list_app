@@ -13,6 +13,15 @@ class _ShoppingListScreenState extends State<ShoppingListScreen> {
   final TextEditingController _controller = TextEditingController(); // 初期値を設定
 // 1. TextEditingControllerは、Dartで用意されているクラスで、テキスト入力を管理する機能を持つ設計図（クラス）です。
 
+// void関数の使い方の勉強中
+  void greet() {
+    print("こんにちは！");
+  }
+
+  void main() {
+    greet(); // 実行すると "こんにちは！" と表示される
+  }
+
   void _addItem() {
     if (_controller.text.isNotEmpty) {
       setState(() {
