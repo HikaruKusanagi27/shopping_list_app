@@ -23,12 +23,40 @@ class _ShoppingListScreenState extends State<ShoppingListScreen> {
   }
 
   void _addItem() {
-    if (_controller.text.isNotEmpty) {
-      setState(() {
+    // もし入力欄に何か文字が入力されていたら
+    // _controller.text は、ユーザーが入力欄に書いた文字を取得します。
+    // .isNotEmpty は、「文字が空ではない（何か書いてある）」かどうかを確認します。
+
+    // 例：
+    // ユーザーが「りんご」と入力 → 条件は true（処理を進める）。
+    // ユーザーが何も入力していない → 条件は false（処理をスキップ）。
+    setState(() {
+      if (_controller.text.isEmpty) {
+        // 入力欄が空の場合
+        // 入力欄が空の場合エラーハンドリング表示
+        showDialog(
+            context: context,
+            builder: (BuildContext context) {
+              return AlertDialog(
+                title: const Text('エラー'),
+                content: const Text('入力欄が空です。値を入力してください。'),
+                actions: <Widget>[
+                  TextButton(
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                    child: const Text('OK'),
+                  ),
+                ],
+              );
+            });
+      } else if (_controller.text.isNotEmpty) {
+        // 入力欄に値がある場合
+        // エラーメッセージをリセット
         shoppingList.add(_controller.text);
-      });
-      _controller.clear();
-    }
+        _controller.clear();
+      }
+    });
   }
 
   void _removeItem(int index) {
